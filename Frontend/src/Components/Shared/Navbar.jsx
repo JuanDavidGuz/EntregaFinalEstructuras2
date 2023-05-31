@@ -12,7 +12,7 @@ import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { logout } from "../../Store/Slices/auth/thunks";
 
-export const Navbar = () => {
+export const Navbar = ({handleToogle}) => {
   const { user } = useSelector((state) => state.auth);
   const [active, setActive] = useState("home");
   const Navigate = useNavigate();
@@ -108,11 +108,11 @@ export const Navbar = () => {
                 </li>
                 <li
                   className="min-w-max"
-                  onClick={() => classSelected("create")}
                 >
-                  <a
+                  <button
                     href="#"
                     className={active == "create" ? activeClass : inactiveClass}
+                    onClick={handleToogle}
                   >
                     <IoAddCircleOutline className="text-gray-600 group-hover:text-[#b14b4b] text-lg" />
                     <span
@@ -122,7 +122,7 @@ export const Navbar = () => {
                     >
                       Crear
                     </span>
-                  </a>
+                  </button>
                 </li>
                 <li
                   className="min-w-max"

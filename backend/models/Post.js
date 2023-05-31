@@ -28,7 +28,7 @@ const Post = Schema({
     }
 });
 
-Post.methods('toJSON',function(){
+Post.method('toJSON',function(){
     const{__v, _id, ...object} = this.toObject();
     object.uid = _id;
     return object;

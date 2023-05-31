@@ -33,7 +33,7 @@ class Server {
     addmiddlewares(){
         this.app.use(cors(this.header))
         this.app.use(express.static('public'))
-        this.app.use(express.json());
+       this.app.use(express.json());
     }
 
     sockets(){
